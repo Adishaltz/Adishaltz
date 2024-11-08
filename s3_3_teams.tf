@@ -118,7 +118,8 @@ resource "aws_s3_bucket_policy" "bucket_a_policy" {
               "arn:aws:iam::767398066589:role/team_c",
               "arn:aws:iam::767398066589:role/Admin",
               "arn:aws:iam::767398066589:user/Mehdi",
-              "arn:aws:iam::767398066589:root"
+              "arn:aws:iam::767398066589:root",
+              "arn:aws:iam::767398066589:role/service-role/Test-role-dqka2azt"
             ]
           }
         }
@@ -128,7 +129,8 @@ resource "aws_s3_bucket_policy" "bucket_a_policy" {
         Effect = "Allow",
         Principal = {
           "AWS" : [
-            "arn:aws:iam::767398066589:role/team_a"
+            "arn:aws:iam::767398066589:role/team_a",
+            "arn:aws:iam::767398066589:role/service-role/Test-role-dqka2azt"
           ]
         },
         Action = [
@@ -213,7 +215,8 @@ resource "aws_s3_bucket_policy" "bucket_b_policy" {
               "arn:aws:iam::767398066589:role/team_b",
               "arn:aws:iam::767398066589:role/Admin",
               "arn:aws:iam::767398066589:user/Mehdi",
-              "arn:aws:iam::767398066589:root"
+              "arn:aws:iam::767398066589:root",
+              "arn:aws:iam::767398066589:role/service-role/Test-role-dqka2azt"
             ]
           }
         }
@@ -223,7 +226,8 @@ resource "aws_s3_bucket_policy" "bucket_b_policy" {
         Effect = "Allow",
         Principal = {
           "AWS" : [
-            "arn:aws:iam::767398066589:role/team_b"
+            "arn:aws:iam::767398066589:role/team_b",
+            "arn:aws:iam::767398066589:role/service-role/Test-role-dqka2azt"
           ]
         },
         Action = [
@@ -531,7 +535,7 @@ resource "aws_iam_policy" "policy-admin" {
         "Sid" : "AllowAdminAllBuckets",
         "Effect" : "Allow",
         "Action" : [
-          "s3:*"
+          "*"
         ],
         "Resource" : [
           "arn:aws:s3:::*",
